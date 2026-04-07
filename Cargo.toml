@@ -3,4 +3,10 @@ name = "abyssal"
 version = "0.1.0"
 edition = "2024"
 
+[lib]
+name = "abbyss"
+crate-type = ["cdylib"]
+
 [dependencies]
+valkey-module = { version = "0.1.5", features = ["min-valkey-compatibility-version-8-0", "min-redis-compatibility-version-7-2"]}
+valkey-module-macros = "0"
