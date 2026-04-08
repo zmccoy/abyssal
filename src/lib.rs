@@ -14,11 +14,10 @@ fn abyssal_add(_: &Context, args: Vec<ValkeyString>) -> ValkeyResult {
     Ok(resp.into())
 }
 
-fn abyssal_life(_: &Context, args: Vec<ValkeyString>) -> ValkeyResult {
+fn abyssal_life(_: &Context, _: Vec<ValkeyString>) -> ValkeyResult {
     let forty_two = ValkeyValue::Integer(42);
     Ok(forty_two)
 }
-
 
 
 ////////////////
@@ -32,6 +31,6 @@ valkey_module! {
     data_types: [],
     commands: [
         ["abyssal.add", abyssal_add, "", 0, 0, 0],
-        ["abyssal.life", abyssal_life, "", 0, 0, 0]
+        ["abyssal.life", abyssal_life, "", 0, 0, 0],
     ]
 }
