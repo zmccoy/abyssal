@@ -1,5 +1,5 @@
 use valkey_module::alloc::ValkeyAlloc;
-use valkey_module::{valkey_module, Context, ValkeyError, ValkeyResult, ValkeyString};
+use valkey_module::{valkey_module, Context, ValkeyError, ValkeyResult, ValkeyString, ValkeyValue};
 
 fn abyssal_add(_: &Context, args: Vec<ValkeyString>) -> ValkeyResult {
     if args.len() != 3 {
@@ -14,6 +14,11 @@ fn abyssal_add(_: &Context, args: Vec<ValkeyString>) -> ValkeyResult {
     Ok(resp.into())
 }
 
+fn abyssal_life(_: &Context, args: Vec<ValkeyString>) -> ValkeyResult {
+    let forty_two = ValkeyValue::Integer(42);
+    Ok(forty_two)
+}
+
 
 
 ////////////////
@@ -26,6 +31,7 @@ valkey_module! {
     allocator: (ValkeyAlloc, ValkeyAlloc),
     data_types: [],
     commands: [
-        ["abbysall.ad", abyssal_add, "", 0, 0, 0],
+        ["abyssal.add", abyssal_add, "", 0, 0, 0],
+        ["abyssal.life", abyssal_life, "", 0, 0, 0]
     ]
 }
